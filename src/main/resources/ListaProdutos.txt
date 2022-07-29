@@ -1,0 +1,6 @@
+Produto Arquivo 1;12.80;0;0;0
+Produto Arquivo 2;44.90;10;10;0
+Produto Arquivo 3;149.90;5;0;30
+Produto Arquivo 4;234.90;0;0;40
+Produto Arquivo 5;1399.90;20;0;110
+Produto Arquivo A REMOVER;99.99;99;0;0
