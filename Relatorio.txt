@@ -1,0 +1,48 @@
+Relatório Squad Amarelo
+
+1 - Arquitetura:
+		Construido num modelo "tipo/quase" MVC, uma vezque não temos de fato uma interface interativa com o usuário final, 
+	apenas uma simulação, temos a seguinte estrutura de pacotes:
+		
+		- Dao - que tem uma interface com os comportamentos de persistência de dados
+		- Modelo - classes com as definições dos dados a serem mantidos
+		- Repositorios - que tem as classes que implementam o "acesso" a estrutura de persistência, 
+		que implementam o comportamento definido no Dao para cada classe de dados de Modelo
+		- Util - contém a definição de classes de apoio, com abstração de trecho de código que facilmente 
+		seriam repetidas na aplicação
+		- Aplicação - com a classe de execução principal.
+	
+2 - Design Patterns (Singleton, Builder, Factory, Decorator, outros...)
+
+2.1 - Decorator : 
+		O Decorator é um padrão estrutural que permite adicionar 
+	novos comportamentos aos objetos dinamicamente, colocando-os dentro de objetos wrapper especiais.
+
+		Está evidenciado na definição da interface BaseDao;
+	que contém o comportamento da classe abstrata BaseRepository;
+	que por sua vez é extendida ao se implementar o "assunto/caso de Uso", Cliente e Projeto.
+
+3 - SOLID
+
+3.1 - Single Responsability:
+		"Uma classe deve ter um, e somente um, motivo para mudar."
+
+		Esse princípio declara que uma classe deve ser especializada em um único assunto e 
+	possuir apenas uma responsabilidade dentro do software, ou seja, 
+	a classe deve ter uma única tarefa ou ação para executar.
+
+		Está evidenciado no projeto pela definição dos pacotes de classes que implementam funções 
+	semelhantes - Dao, Repositório, Model... - para cada "assunto/caso de Uso" do 
+	projeto - Cliente (e suas extensões), Produto.
+ 
+3.2 - Open / Closed:
+		Objetos ou entidades devem estar abertos para extensão, 
+	mas fechados para modificação, ou seja, quando novos comportamentos e recursos 
+	precisam ser adicionados no software, devemos estender e não alterar o código fonte original.
+
+		Para implementar OCP, devemos:
+	- separar o comportamento extensível por trás de uma interface;
+	- inverter as dependências.
+		
+		Está evidenciado na implementação das Interface BaseDao.java, que define o comportamento das
+	classes de repositório tanto de Clientes como de Produto.
