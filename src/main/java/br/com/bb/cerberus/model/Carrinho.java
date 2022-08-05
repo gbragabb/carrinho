@@ -61,7 +61,9 @@ public class Carrinho {
     }
 
     public void alteraQuantidade(Produto p, int qt){
-    	//TODO - Tratar Exceções quando a quantidade é negativa?
+		if(0 > qt) {
+			throw new IllegalArgumentException("Quantidade de produtos não pode ser negativa.");
+		}
     	//Ao colocar uma quantidade 0 é análogo à remover do carrinho
     	if(qt == 0) {
     		this.remove(p);
